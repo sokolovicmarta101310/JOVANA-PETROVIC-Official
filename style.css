@@ -1,0 +1,261 @@
+:root {
+  --primary: #b00020;
+  --secondary: #111;
+  --light: #f9f9f9;
+  --accent: #ff4757;
+}
+
+* { 
+  margin:0; 
+  padding:0; 
+  box-sizing:border-box; 
+}
+
+body { 
+  font-family: 'Inter', sans-serif; 
+  background: var(--light); 
+  color: var(--secondary); 
+  line-height: 1.6; 
+}
+
+header {
+  background: url('images/background.jpg') no-repeat center/cover;
+  height: 300px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+}
+header .title { 
+  font-size:3em; 
+  font-weight:900; 
+  letter-spacing:1px; 
+  animation: fadeSlide 2s ease forwards; 
+  opacity:0; 
+}
+header p { 
+  font-size:1.2em; 
+  color:#ddd; 
+  margin-top:10px; 
+}
+
+@keyframes fadeSlide {
+  0% { transform: translateY(-50px); opacity:0; }
+  100% { transform: translateY(0); opacity:1; }
+}
+
+.profile { 
+  max-width:1000px; 
+  margin:40px auto; 
+  background:white; 
+  padding:30px; 
+  border-radius:12px; 
+  box-shadow:0 10px 30px rgba(0,0,0,0.15); 
+  display:flex; 
+  flex-direction:column; 
+}
+
+.profile .top { 
+  display:flex; 
+  flex-wrap: wrap; 
+  gap: 20px;
+  align-items: flex-start; 
+}
+
+.profile .photo { 
+  flex: 0 0 200px;
+}
+.profile .photo img.profile-pic { 
+  width: 100%; 
+  height: auto; 
+  border-radius:12px; 
+  border:4px solid var(--primary); 
+}
+
+.profile .info { 
+  flex: 1; 
+  min-width: 200px; 
+}
+.profile .info-row { 
+  margin-bottom:12px; 
+  font-size:1.05em; 
+}
+.profile .info-row strong { 
+  color: var(--primary); 
+}
+
+.section { 
+  max-width:1000px; 
+  margin:50px auto; 
+  padding:0 20px; 
+  opacity:0; 
+  transform: translateY(50px); 
+  transition: all 0.8s ease; 
+}
+.section.visible { 
+  opacity:1; 
+  transform: translateY(0); 
+}
+
+.section h2 { 
+  font-size:2em; 
+  color:var(--primary); 
+  border-bottom:3px solid var(--accent); 
+  margin-bottom:20px; 
+  padding-bottom:5px; 
+}
+
+.section h3 {
+  color: var(--primary);
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.section ul { 
+  list-style-type: disc; 
+  margin-left:20px; 
+}
+.section ul li { 
+  margin-bottom:8px; 
+}
+
+.video-block { 
+  margin-bottom:30px; 
+  text-align: center;
+}
+.video-block p {
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+.video-block iframe { 
+  width: 100%; 
+  max-width: 800px;
+  height: 450px; 
+  border: none; 
+  border-radius: 12px; 
+}
+
+.press-cards { 
+  display:grid; 
+  grid-template-columns: repeat(auto-fit,minmax(280px,1fr)); 
+  gap:20px; 
+}
+.press-card { 
+  background:white; 
+  border-radius:12px; 
+  padding:15px; 
+  box-shadow:0 6px 20px rgba(0,0,0,0.1); 
+  transition: transform 0.3s ease; 
+}
+.press-card:hover { 
+  transform:scale(1.05); 
+}
+.press-card a { 
+  color: var(--primary); 
+  text-decoration:none; 
+}
+.press-card a:hover { 
+  text-decoration:underline; 
+}
+
+.gallery {
+  column-count: 3;   
+  column-gap: 15px;
+  margin-top: 20px;
+}
+
+.gallery img {
+  width: 100%;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  display: block;
+}
+
+.gallery img:hover {
+  transform: scale(1.03);
+}
+
+.modal { 
+  display:none; 
+  position:fixed; 
+  z-index:9999; 
+  left:0; 
+  top:0; 
+  width:100%; 
+  height:100%; 
+  background:rgba(0,0,0,0.9); 
+  justify-content:center; 
+  align-items:center; 
+}
+.modal-content { 
+  max-width:90%; 
+  max-height:90%; 
+  border-radius:12px; 
+}
+.close, .prev, .next { 
+  position:absolute; 
+  top:50%; 
+  color:white; 
+  font-size:50px; 
+  cursor:pointer; 
+  user-select:none; 
+  transform:translateY(-50%); 
+  padding:0 15px; 
+}
+.close { 
+  top:20px; 
+  right:30px; 
+  font-size:40px; 
+  transform:none; 
+}
+.prev { left:10px; }
+.next { right:10px; }
+
+.contact { 
+  max-width:800px; 
+  margin:50px auto; 
+  text-align:center; 
+  display:flex; 
+  justify-content:center; 
+  gap:40px; 
+  flex-wrap:wrap; 
+}
+.contact-item { 
+  display:flex; 
+  align-items:center; 
+  gap:10px; 
+  font-size:1.1em; 
+}
+.contact-item img { 
+  width:24px; 
+  height:24px; 
+}
+.contact-item a { 
+  color:var(--primary); 
+  text-decoration:none; 
+}
+.contact-item a:hover { 
+  text-decoration:underline; 
+}
+
+footer { 
+  text-align:center; 
+  padding:30px; 
+  color:#555; 
+  background:#eee; 
+  margin-top:50px; 
+}
+
+@media(max-width:1200px){ 
+  .gallery { column-count:2; } 
+}
+@media(max-width:768px){ 
+  .gallery { column-count:1; } 
+  .profile .top { flex-direction: column; align-items: center; }
+  .profile .photo { flex: 0 0 auto; margin-bottom: 15px; }
+  .video-block iframe { height: 300px; }
+}
